@@ -1,19 +1,25 @@
 import React from 'react'
-import { createArray } from '../utils/createArray'
 import Star from './Star'
+import { createArray } from '../utils/createArray'
 
 type Props = Readonly<{
-  totalStars?: number
   selectedStars: number
+  onRate: (rating: number) => void
 }>
 
-const StarRating = ({ totalStars = 5, selectedStars }: Props) => {
+const totalStars = 5
+
+const StarRating = ({
+  selectedStars,
+  onRate
+}: Props) => {
   return (
     <>
       {createArray(totalStars).map((n, i) => (
         <Star
           key={i}
           selected={selectedStars > i}
+          onSelect={() => onRate(i + 1)}
         />
       ))}
       <p>{selectedStars} / {totalStars}</p>

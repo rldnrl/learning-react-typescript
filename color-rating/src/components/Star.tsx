@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa'
 
 type Props = Readonly<{
   selected: boolean
-  onSelect?: () => void
+  onSelect: () => void
 }>
 
 const Star = ({ selected, onSelect }: Props) => {
